@@ -1,0 +1,62 @@
+.card-pizza {
+  background-color: #e9e6e6;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin: 3px;
+}
+
+.card-pizza img {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+
+  border-bottom: 1px solid #16bdd3;
+}
+
+.card-pizza h2 {
+  text-align: center;
+  margin: 10px 0 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ingredientes {
+  text-align: center;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+li {
+  display: inline;
+  text-align: center;
+  padding: 3px;
+}
+
+.card-pizza p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 200;
+}
+h5 {
+  text-align: center;
+}
+
+.card-pizza button {
+  background-color: #868383;
+  border: solid blueviolet 0.1px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.card-pizza button:hover {
+  background-color: #666;
+}
+.boton {
+  margin: 20px;
+  text-align: center;
+  justify-content: space-around;
+
+}
