@@ -1,0 +1,41 @@
+.Container {
+    background-color:white ;
+    color: black;
+    width: 300px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(214, 204, 204, 0.3);
+  }
+  
+  .Handle{
+    margin-bottom: 15px;
+  }
+  
+  .Email,
+  .Contra,
+  .confirmacion {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .Email input,
+  .Contra input,
+  .confirmacion input {
+
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .boton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }

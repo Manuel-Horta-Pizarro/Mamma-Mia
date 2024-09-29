@@ -55,8 +55,12 @@ h5 {
   background-color: #666;
 }
 .boton {
+  background-color: #ccecea;
   margin: 20px;
   text-align: center;
   justify-content: space-around;
 
+}
+.btn1{
+  margin-right: 80px;
 }

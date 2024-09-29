@@ -17,8 +17,8 @@ export default function CardPizza({ name, price, ingredients, img }) {
       <h5>Precio: ${price}</h5>
 
       <div className="boton">
-        <button>Ver Más</button>
-        <button>Añadir</button>
+        <button className="btn1">Ver Más</button>
+        <button className="btn2">Añadir</button>
       </div>
     </div>
   );
