@@ -1,9 +1,16 @@
-import Productos from "./productos/Productos";
+import Pizzas from './productos/Pizzas/';
+import CardPizza from './productos/CardPizza/';
 
-export default function Home() {
+function Home() {
   return (
     <div>
-      <Productos />
+      <div className="card-pizza-container">
+        {Pizzas.map((pizza) => (
+          <CardPizza key={pizza.id} {...pizza} />
+        ))}
+      </div>
     </div>
   );
 }
+
+export default Home;
