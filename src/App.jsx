@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Footer from "./assets/components/home/footer/Footer";
 import Navbar from "./assets/components/home/navbar/Navbar";
-import Cart from "./assets/components/home/carrito/Cart";
+//import Cart from "./assets/components/home/carrito/Cart";
 //import Login from "./assets/components/home/login/Login";
 //import Register from "./assets/components/home/registro/Register";
-import Home from "./assets/components/home/Home";
+//import Home from "./assets/components/home/Home";
 import { CartProvider } from "./assets/components/home/carrito/CartContext.jsx";
+import Pizza from "./assets/components/Pizza.jsx";
 
 const App = () => {
   const [showRegister, setShowRegister] = useState(false);
@@ -19,10 +20,11 @@ const App = () => {
         showLogin={showLogin}
         setShowLogin={setShowLogin}
       />
-      <Cart/>
+      {/*<Cart/>*/}
       {/*showRegister && <Register />*/}
       {/*showLogin && <Login />*/}
-      <Home/>
+      {/*<Home/>*/}
+      <Pizza />
       <Footer />
     </CartProvider>
   );

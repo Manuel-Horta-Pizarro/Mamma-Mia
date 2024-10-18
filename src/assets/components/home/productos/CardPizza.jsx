@@ -1,30 +1,30 @@
 /* eslint-disable react/prop-types */
-import "./CardPizza.css";
 import { useContext } from 'react';
 import CartContext from '../carrito/CartContext.jsx';
+import "./CardPizza.css";
 
-function CardPizza({ name, price, ingredients, img }) {
+function CardPizza({ nombre, precio, ingredientes, img }) {
   const { addToCart } = useContext(CartContext);
 
   const handleClick = () => {
-    addToCart({ name, price, ingredients, img, quantity: 1 });
+    addToCart({ nombre, precio, ingredientes, img, cantidad: 1 });
   };
 
   return (
     <div className="card-pizza">
-      <img src={img} alt={name} />
-      <h2>{name}</h2>
+      <img src={img} alt={nombre} />
+      <h2>{nombre}</h2>
 
       <h3>Ingredientes</h3>
-      <ul className="ingredientes">
-        {ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
+      <ul className="ingredients-list">
+        {ingredientes.map((ingredientes, index) => (
+          <li key={index}>{ingredientes}</li>
         ))}
       </ul>
 
-      <h5>Precio: ${price}</h5>
+      <h5>Precio: ${precio}</h5>
 
-      <div className="boton">
+      <div className="buttons">
         <button className="btn1">Ver Más</button>
         <button className="btn2" onClick={handleClick}>Añadir al carrito</button>
       </div>
