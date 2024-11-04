@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CardPizza from './CardPizza';
+import CardPizza from "../assets/components/home/productos/CardPizza";
+
 
 const Home = () => {
   const [pizzas, setPizzas] = useState([]);

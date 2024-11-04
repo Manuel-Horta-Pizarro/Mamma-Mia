@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Footer from "./assets/components/home/footer/Footer";
 import Navbar from "./assets/components/home/navbar/Navbar";
-//import Cart from "./assets/components/home/carrito/Cart";
-//import Login from "./assets/components/home/login/Login";
-//import Register from "./assets/components/home/registro/Register";
-//import Home from "./assets/components/home/Home";
-import { CartProvider } from "./assets/components/home/carrito/CartContext.jsx";
-import Pizza from "./assets/components/Pizza.jsx";
+import Cart from "./pages/carrito/Cart.jsx";
+import Login from "./pages/login/Login.jsx";
+import Register from "./pages/registro/Register.jsx";
+import Home from "./pages/Home.jsx"; 
+import { CartProvider } from "./assets/components/home/CartContext.jsx";
+import Pizza from "./pages/Pizza.jsx"; 
+import NotFound from "./pages/NotFound.jsx"; 
+import Profile from "./pages/profile.jsx";
 
 const App = () => {
   const [showRegister, setShowRegister] = useState(false);
@@ -20,11 +23,15 @@ const App = () => {
         showLogin={showLogin}
         setShowLogin={setShowLogin}
       />
-      {/*<Cart/>*/}
-      {/*showRegister && <Register />*/}
-      {/*showLogin && <Login />*/}
-      {/*<Home/>*/}
-      <Pizza />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/pizza/:id" element={<Pizza />} /> 
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </CartProvider>
   );

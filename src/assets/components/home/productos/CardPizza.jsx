@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
-import CartContext from '../carrito/CartContext.jsx';
+import CartContext from '../CartContext.jsx';
 import "./CardPizza.css";
 
 function CardPizza({ nombre, precio, ingredientes, img }) {

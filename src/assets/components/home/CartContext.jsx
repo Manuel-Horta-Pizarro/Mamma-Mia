@@ -1,14 +1,11 @@
 /* eslint-disable react/prop-types */
+import { createContext, useState } from 'react';
 
-import { createContext, useState } from "react";
-
-
-const CartContext = createContext();
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [pizzaCart, setPizzaCart] = useState([]);
 
-  
   const addToCart = (pizza) => {
     setPizzaCart((prevCart) => {
       const existingPizza = prevCart.find((item) => item.name === pizza.name);
@@ -31,7 +28,7 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ pizzaCart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ pizzaCart, setPizzaCart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
