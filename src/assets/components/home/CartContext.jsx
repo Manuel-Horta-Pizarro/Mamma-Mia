@@ -8,27 +8,28 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (pizza) => {
     setPizzaCart((prevCart) => {
-      const existingPizza = prevCart.find((item) => item.name === pizza.name);
+      const existingPizza = prevCart.find((item) => item.nombre === pizza.nombre);
       if (existingPizza) {
         return prevCart.map((item) =>
-          item.name === pizza.name
-            ? { ...item, quantity: item.quantity + 1 }
+          item.nombre === pizza.nombre
+            ? { ...item, cantidad: item.cantidad + 1 }
             : item
         );
       } else {
-        return [...prevCart, { ...pizza, quantity: 1 }];
+        return [...prevCart, { ...pizza, cantidad: 1 }];
       }
     });
   };
 
-  const removeFromCart = (name) => {
-    setPizzaCart((prevCart) =>
-      prevCart.filter((pizza) => pizza.name !== name)
-    );
+  const removeFromCart = (nombre) => {
+    setPizzaCart((prevCart) => prevCart.filter((pizza) => pizza.nombre !== nombre));
   };
 
+  const calculateTotal = () =>
+    pizzaCart.reduce((total, item) => total + item.precio * item.cantidad, 0);
+
   return (
-    <CartContext.Provider value={{ pizzaCart, setPizzaCart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ pizzaCart, addToCart, removeFromCart, calculateTotal }}>
       {children}
     </CartContext.Provider>
   );

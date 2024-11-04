@@ -4,11 +4,8 @@ import { CartContext } from '../carrito/CartContext';
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { pizzaCart } = useContext(CartContext);
-
+  const { calculateTotal } = useContext(CartContext);
   
-  const total = pizzaCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
   return (
     <nav className="navbar">
       <h2 className="titulo">Pizzería Mamma Mía</h2>
@@ -19,7 +16,7 @@ const Navbar = () => {
         <li><Link to="/profile">Profile</Link></li>
       </ul>
       <div className="cart-total">
-        <Link to="/cart">🛒 Total: ${total}</Link>
+        <Link to="/cart">🛒 Total: ${calculateTotal()}</Link>
       </div>
     </nav>
   );

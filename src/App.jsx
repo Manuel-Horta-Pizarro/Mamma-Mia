@@ -10,12 +10,14 @@ import { CartProvider } from "./assets/components/home/CartContext.jsx";
 import Pizza from "./pages/Pizza.jsx"; 
 import NotFound from "./pages/NotFound.jsx"; 
 import Profile from "./pages/profile.jsx";
+import { PizzaProvider } from "./pages/PizzaContext.jsx";
 
 const App = () => {
   const [showRegister, setShowRegister] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
 
   return (
+    <PizzaProvider>
     <CartProvider>
       <Navbar
         showRegister={showRegister}
@@ -34,6 +36,7 @@ const App = () => {
       </Routes>
       <Footer />
     </CartProvider>
+    </PizzaProvider>
   );
 };
 
