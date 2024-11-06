@@ -1,22 +1,34 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { CartContext } from '../carrito/CartContext';
+import { UserContext } from '../../context/UserContext';
+import { CartContext } from '../../context/CartContext';
 import "./Navbar.css";
 
 const Navbar = () => {
-  const { calculateTotal } = useContext(CartContext);
-  
+  const { token, logout } = useContext(UserContext);
+  const { pizzaCart } = useContext(CartContext);
+
+  const total = pizzaCart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+
   return (
     <nav className="navbar">
       <h2 className="titulo">Pizzería Mamma Mía</h2>
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/register">Register</Link></li>
-        <li><Link to="/login">Login</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
+        {token ? (
+          <>
+            <li><Link to="/profile">Profile</Link></li>
+            <li><button onClick={logout}>Logout</button></li>
+          </>
+        ) : (
+          <>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/register">Register</Link></li>
+          </>
+        )}
       </ul>
       <div className="cart-total">
-        <Link to="/cart">🛒 Total: ${calculateTotal()}</Link>
+        <Link to="/cart">🛒 Total: ${total}</Link>
       </div>
     </nav>
   );

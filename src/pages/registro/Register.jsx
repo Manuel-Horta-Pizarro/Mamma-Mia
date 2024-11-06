@@ -32,7 +32,7 @@ const Register = () => {
       return;
     }
 
-    // Si todo está bien, puedes hacer la solicitud a la API
+   
     try {
       const response = await fetch('/api/register', {
         method: 'POST',

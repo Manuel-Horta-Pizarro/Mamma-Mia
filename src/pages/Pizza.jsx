@@ -7,7 +7,6 @@ const Pizza = () => {
   const { id } = useParams(); 
   const [pizza, setPizza] = useState(null);
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchPizza = async () => {
@@ -16,35 +15,20 @@ const Pizza = () => {
         setPizza(response.data);
       } catch (error) {
         setError('Error al cargar la pizza');
-      } finally {
-        setIsLoading(false);
       }
     };
-
     fetchPizza();
-  }, [id]); 
+  }, [id]);
 
-  if (isLoading) {
-    return <p>Cargando pizza...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
+  if (!pizza) return <p>{error || "Cargando pizza..."}</p>;
 
   return (
     <div>
-      {pizza ? (
-        <div>
-          <h2>{pizza.name}</h2>
-          <img src={pizza.img} alt={pizza.name} />
-          <p>Descripción: {pizza.descripcion}</p>
-          <p>Ingredientes: {pizza.ingredients.join(', ')}</p>
-          <p>Precio: ${pizza.price}</p>
-        </div>
-      ) : (
-        <p>No se encontró la pizza.</p>
-      )}
+      <h2>{pizza.nombre}</h2>
+      <img src={pizza.img} alt={pizza.nombre} />
+      <p>{pizza.descripcion}</p>
+      <p>Ingredientes: {pizza.ingredientes.join(', ')}</p>
+      <p>Precio: ${pizza.precio}</p>
     </div>
   );
 };
