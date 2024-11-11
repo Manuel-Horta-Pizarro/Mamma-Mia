@@ -1,16 +1,19 @@
-import { useState } from "react";
-import "./Registro.css";
+import { useState, useContext } from 'react';
+import { UserContext } from '../../assets/components/context/UserContext';
+import { useNavigate } from 'react-router-dom';
+import './Registro.css';
 
 const Register = () => {
+  const { register } = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación básica
     if (!email || !password || !confirmPassword) {
       setErrorMessage('Todos los campos son obligatorios');
       return;
@@ -32,27 +35,17 @@ const Register = () => {
       return;
     }
 
-   
     try {
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Error al registrarse');
-      }
-      
-      console.log('Registro exitoso');
-    } catch (error) {
-      setErrorMessage('Error en el registro: ' + error.message);
+      await register(email, password);
+      navigate('/profile');
+    } catch {
+      setErrorMessage('Error en el registro');
     }
   };
 
   return (
     <div>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form onSubmit={handleSubmit}>
         <label>
           Correo electrónico:

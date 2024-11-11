@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
 import CartContext from '../../context/CartContext';
-import "./CardPizza.css";
+
 
 function CardPizza({ nombre, precio, ingredientes, img }) {
   const { addToCart } = useContext(CartContext);

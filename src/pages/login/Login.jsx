@@ -1,72 +1,32 @@
-/* eslint-disable no-undef */
-import "./Login.css";
-import { useState } from "react";
+import { useState, useContext } from 'react';
+import { UserContext } from '../../assets/components/context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+    const { login } = useContext(UserContext);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-  const handleSubmit = async (eso) => {
-    eso.preventDefault();
-    // Validacion mas compleja
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !password) {
-      setErrorMessage("Todos los campos son obligatorios");
-    } else if (!emailRegex.test(email)) {
-      setErrorMessage("Por favor, ingresa un correo electrónico válido");
-    } else {
-      setIsLoading(true);
-      setErrorMessage("");
-
-      try {
-        const response = await fetch("/api/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          setErrorMessage(errorData.message || "Credenciales inválidas");
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await login(email, password);
+            navigate('/profile');
+        } catch {
+            setError('Error al iniciar sesión');
         }
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        setErrorMessage("Error al iniciar sesión");
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  };
+    };
 
-  return (
-    <div className="from">
-      {errorMessage && <p className="error">{errorMessage}</p>}
-      <form onSubmit={handleSubmit}>
-        <label className="Label">
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-
-        <label>
-          Contraseña:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button type="submit">Iniciar sesión</button>
-      </form>
-    </div>
-  );
+    return (
+        <form onSubmit={handleSubmit}>
+            {error && <p>{error}</p>}
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Contraseña" />
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    );
 };
 
 export default Login;
