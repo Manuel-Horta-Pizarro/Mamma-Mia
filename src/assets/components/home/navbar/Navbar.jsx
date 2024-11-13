@@ -12,7 +12,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <h2 className="titulo">Pizzería Mamma Mía</h2>
+      <h2 className="titulo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrB9F_Tu3yDTPuh0FVynXpRoFN9TbLpL66dQ&s" alt="Pizza Logo" className="logo" />
+        Pizzería Mamma Mía
+      </h2>
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
         {token ? (

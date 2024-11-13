@@ -9,11 +9,19 @@
 }
 
 .titulo {
+  display: flex;
+  align-items: center;
   font-size: 1.8rem;
   font-weight: bold;
   color: #d67575;
   padding-left: 10px;
-  font-family: 'Montserrat', sans-serif; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo {
+  width: 35px; 
+  height: 35px; 
+  margin-right: 10px;
 }
 
 .nav-links {
@@ -21,11 +29,11 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .nav-links li {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .nav-links a {
@@ -36,5 +44,5 @@
 }
 
 .nav-links a:hover {
-  color: #f0f0f0;
+  color: #1fbe39;
 }
