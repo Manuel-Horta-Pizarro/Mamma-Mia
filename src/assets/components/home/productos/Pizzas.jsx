@@ -48,6 +48,31 @@ const pizzas = [
     ingredientes: ["mozzarella", "pimientos", "pollo grillé", "orégano"],
     precio: 8500,
   },
+  {
+    id: "p007",
+    nombre: "Mediterránea",
+    descripcion: "Una pizza ligera y refrescante con espinaca, queso feta y aceitunas negras.",
+    img: "https://assets.unileversolutions.com/recipes-v2/247642.jpg?im=Resize,height=580;Crop,size=(632,580),gravity=Center",
+    ingredientes: ["mozzarella", "espinaca", "queso feta", "aceitunas negras"],
+    precio: 7990,
+  },
+  {
+    id: "p008",
+    nombre: "Barbacoa",
+    descripcion: "La favorita de los amantes del sabor ahumado, con carne de res, salsa BBQ y cebolla caramelizada.",
+    img: "https://okdiario.com/img/2015/09/08/receta-pizza-barbacoa.jpg",
+    ingredientes: ["mozzarella", "carne de res", "salsa BBQ", "cebolla caramelizada"],
+    precio: 8990,
+  },
+  {
+    id: "p009",
+    nombre: "Veggie Deluxe",
+    descripcion: "Ideal para vegetarianos, una mezcla deliciosa de vegetales frescos como pimientos, champiñones y albahaca.",
+    img: "https://popmenucloud.com/cdn-cgi/image/width=1920,height=1920,format=auto,fit=scale-down/zaokrhpg/a421a875-7c97-4dab-a693-d53ec77417c1",
+    ingredientes: ["mozzarella", "pimientos", "champiñones", "albahaca fresca"],
+    precio: 7590,
+  },
+
 
 ];
 

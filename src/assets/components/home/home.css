@@ -1,49 +1,60 @@
-body{
-    margin: 0;
-    background-color: rgb(173, 171, 171);
-    font-family: 'Montserrat', sans-serif;
+body {
+  margin: 0;
+  background-color: rgb(173, 171, 171);
+  font-family: 'Montserrat', sans-serif;
 }
+
 .pizza-container {
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-around; 
-    margin: 20px; 
-  }
-  
- 
-  .pizza-card {
-    background-color: rgb(255, 197, 197);
-    border: 1px solid #7c1204; 
-    border-radius: 5px; 
-    padding: 15px; 
-    margin: 10px; 
-    text-align: center;
-    width: calc(35% - 40px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-  }
-  
-  
-  .pizza-card h2 {
-    font-size: 18px; 
-    margin-bottom: 10px; 
-  }
-  
-  .pizza-card p {
-    margin-bottom: 5px; 
-  }
-  
-  .pizza-card img {
-    max-width: 370px; 
-    height: 300px; 
-    margin-bottom: 10px; 
-  }
-  .pizza-card button {
-    background-color: #265817; 
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
- 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px; 
+  padding: 20px;
+  justify-content: center;
+  align-items: start;
+}
+
+.pizza-card {
+  background-color: rgb(255, 197, 197);
+  border: 1px solid #7c1204;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.pizza-card:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pizza-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.pizza-card p {
+  margin-bottom: 5px;
+}
+
+.pizza-card img {
+  max-width: 100%;
+  height: 200px; 
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 9px; 
+}
+
+.pizza-card button {
+  background-color: #265817;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pizza-card button:hover {
+  background-color: #1d4712;
+}
